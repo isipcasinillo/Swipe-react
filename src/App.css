@@ -1,0 +1,11 @@
+.columnList {
+  margin: 5px;
+  width: 340px;
+  height: 800px;
+  background-color: green;
+}
+
+.columnContainer {
+  display: flex;
+  flex-direction: row;
+}
