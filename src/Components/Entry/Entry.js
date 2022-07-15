@@ -6,7 +6,7 @@ function Entry({ setData, data, column }) {
     const [companyState, setCompanyState] = useState('')
     const [positionState, setPositionState] = useState('')
     const [salaryState, setSalaryState] = useState('')
-    const [interviewState, setInterviewState] = useState('')
+    // const [interviewState, setInterviewState] = useState('')
     const [modalState, setModal] = useState(false)
 
     const onSubmitHandler = (e) => {
@@ -19,7 +19,7 @@ function Entry({ setData, data, column }) {
             salary: salaryState,
             // morningShift: true,
             // position: 'Full Stack Developer',
-            interview: interviewState,
+            // interview: interviewState,
             status: column
 
         }
@@ -48,27 +48,28 @@ function Entry({ setData, data, column }) {
                         <div className='entry__title'>
                             Create Entry
                         </div>
-                        <div>
+                        <div className='entry__close'>
                             <IoCloseCircleSharp size={24} onClick={() => setModal(false)} />
                         </div>
                     </div>
                     <form className='entry__form' onSubmit={(e) => onSubmitHandler(e)}>
-                        <div>
+                        <div className='entry__input__container'>
                             <div className='entry__input'>
                                 <label>Company</label>
-                                <input type="text" name="company" value={companyState} onChange={(e) => setCompanyState(e.target.value)} required />
+                                <input type="text" name="company" placeHolder='Intuit' value={companyState} onChange={(e) => setCompanyState(e.target.value)} required />
                             </div>
                             <div className='entry__input'>
                                 <label>Position</label>
-                                <input type="text" name="position" value={positionState} onChange={(e) => setPositionState(e.target.value)} required /></div>
+                                <input type="text" name="position" placeHolder='Application Developer' value={positionState} onChange={(e) => setPositionState(e.target.value)} required /></div>
                             <div className='entry__input'>
                                 <label>Salary</label>
-                                <input type="text" name="salary" value={salaryState} onChange={(e) => setSalaryState(e.target.value)} required />
+                                <input type="text" name="salary" placeHolder='$55,000' value={salaryState} onChange={(e) => setSalaryState(e.target.value)} required />
                             </div>
-                            {/* <label>Interview date:</label>
-                    <input type="date" name="interview" value={interviewState} onChange={(e) => setInterviewState(e.target.value)} required /> */}
-                            <button type='submit'>Create Entry</button>
                         </div>
+                        {/* <label>Interview date:</label>
+                    <input type="date" name="interview" value={interviewState} onChange={(e) => setInterviewState(e.target.value)} required /> */}
+                        <button className='entry__button' type='submit'>Create Entry</button>
+
 
                     </form>
                 </div>

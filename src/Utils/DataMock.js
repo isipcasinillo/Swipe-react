@@ -7,7 +7,7 @@ const Data = [
         morningShift: true,
         position: 'Full Stack Developer',
         interview: '2022-08-10',
-        status: 'Decision'
+        status: 'Applied'
     },
     {
         id: 2123123123,
@@ -17,7 +17,7 @@ const Data = [
         morningShift: true,
         position: 'Medical device technician',
         interview: null,
-        status: 'Decision'
+        status: 'Applied'
     },
     {
         id: 3512312312,
@@ -27,8 +27,18 @@ const Data = [
         morningShift: true,
         position: 'Data Analyst I',
         interview: null,
-        status: 'Decision'
-    }
+        status: 'Applied'
+    },
+    {
+        id: 24236523423423,
+        company: 'Intuit',
+        description: 'Data Analyst to help team manage multiple faucet of data',
+        salary: 35000,
+        morningShift: true,
+        position: 'Web Developer',
+        interview: null,
+        status: 'Applied'
+    },
 ]
 
 export default Data;

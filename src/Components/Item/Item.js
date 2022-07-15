@@ -2,9 +2,22 @@ import React, { useState } from 'react'
 import Edit from '../Edit/Edit'
 import { FaTrash } from 'react-icons/fa'
 import '../Item/Item.css'
+import { useDrag } from 'react-dnd'
+import { ItemTypes } from '../../Utils/ItemType'
 function Item({ deleteHandler, data, setData, keyid }) {
-
     const result = data?.find(item => item.id === keyid)
+    // console.log(result)
+    const [{ extraProps }, drag] = useDrag({
+        item: {
+            id: keyid,
+            columnName: result.status
+        },
+        type: ItemTypes.CARD,
+        collect: monitor => ({
+            isDragging: !!monitor.isDragging(),
+        })
+    })
+
 
     const changeStatusHandler = (e) => {
         const remainingItem = data.filter(entry => entry.id !== result.id)
@@ -15,7 +28,7 @@ function Item({ deleteHandler, data, setData, keyid }) {
     }
 
     return (
-        <div key={result.keyid} className="item__card">
+        <div key={result.keyid} className="item__card" ref={drag}>
             {data &&
                 <div className='item__container'>
                     <div className='item__first'>

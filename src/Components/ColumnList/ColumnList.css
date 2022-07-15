@@ -1,3 +1,11 @@
+.column__container {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.column__container::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
 .columnList {
     height:552px;
     width: 328px;
@@ -10,10 +18,11 @@
 
 
 .column__title {
-    width: 80px;
     font-size:  20px;
-    margin-left: 40px;
     margin-bottom: 18px;
 }
 
-
+.column__container {
+    overflow-y: auto;
+    height: 420px;
+}
