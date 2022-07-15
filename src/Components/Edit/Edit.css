@@ -9,3 +9,14 @@
   transform: translate(-50%, -50%);
 
 }
+
+
+.Edit__button {
+  border-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #7979E0;
+  margin-right: 16px;
+
+}

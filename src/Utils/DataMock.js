@@ -11,7 +11,7 @@ const Data = [
     },
     {
         id: 2123123123,
-        company: 'Abbott Laboratories',
+        company: 'Abbott Lab',
         description: 'Medical device technician to assist production',
         salary: 55000,
         morningShift: true,

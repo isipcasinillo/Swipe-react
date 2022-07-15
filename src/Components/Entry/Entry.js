@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ReactModal from 'react-modal'
-
+import { IoCloseCircleSharp } from 'react-icons/io5'
+import '../Entry/Entry.css'
 function Entry({ setData, data, column }) {
     const [companyState, setCompanyState] = useState('')
     const [positionState, setPositionState] = useState('')
@@ -14,7 +15,7 @@ function Entry({ setData, data, column }) {
         const newArray = {
             id: Math.random(),
             company: companyState,
-            description: positionState,
+            position: positionState,
             salary: salaryState,
             // morningShift: true,
             // position: 'Full Stack Developer',
@@ -31,21 +32,49 @@ function Entry({ setData, data, column }) {
                 isOpen={modalState}
                 contentLabel="Modal"
                 ariaHideApp={false}
-                className="edit-modal">
-                <form onSubmit={(e) => onSubmitHandler(e)}>
-                    <label>Company name:</label>
-                    <input type="text" name="company" value={companyState} onChange={(e) => setCompanyState(e.target.value)} required />
-                    <label>Description:</label>
-                    <input type="text" name="description" value={positionState} onChange={(e) => setPositionState(e.target.value)} required />
-                    <label>Salary:</label>
-                    <input type="text" name="salary" value={salaryState} onChange={(e) => setSalaryState(e.target.value)} required />
-                    <label>Interview date:</label>
-                    <input type="date" name="interview" value={interviewState} onChange={(e) => setInterviewState(e.target.value)} required />
-                    <button type='submit'>Create Entry</button>
-                </form>
-                <button onClick={() => setModal(false)}>Close Modal</button>
+                className="entry-modal"
+                style={{
+                    overlay: {
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backdropFilter: ('blur(5px)'),
+                    }
+                }}>
+                <div className='entry__wrapper'>
+                    <div className='entry__first'>
+                        <div className='entry__title'>
+                            Create Entry
+                        </div>
+                        <div>
+                            <IoCloseCircleSharp size={24} onClick={() => setModal(false)} />
+                        </div>
+                    </div>
+                    <form className='entry__form' onSubmit={(e) => onSubmitHandler(e)}>
+                        <div>
+                            <div className='entry__input'>
+                                <label>Company</label>
+                                <input type="text" name="company" value={companyState} onChange={(e) => setCompanyState(e.target.value)} required />
+                            </div>
+                            <div className='entry__input'>
+                                <label>Position</label>
+                                <input type="text" name="position" value={positionState} onChange={(e) => setPositionState(e.target.value)} required /></div>
+                            <div className='entry__input'>
+                                <label>Salary</label>
+                                <input type="text" name="salary" value={salaryState} onChange={(e) => setSalaryState(e.target.value)} required />
+                            </div>
+                            {/* <label>Interview date:</label>
+                    <input type="date" name="interview" value={interviewState} onChange={(e) => setInterviewState(e.target.value)} required /> */}
+                            <button type='submit'>Create Entry</button>
+                        </div>
+
+                    </form>
+                </div>
             </ReactModal>
-            <button onClick={() => setModal(true)}>Add Entry</button>
+
+            <button className='Entry__button' onClick={() => setModal(true)}>Add Entry</button>
         </>
     )
 }

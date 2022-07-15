@@ -1,5 +1,64 @@
-.item__card {
-    width: 340px;
-    height: 150px;
-    background-color: white;
+*{
+    box-sizing: border-box;
+}
+
+
+.item__container {
+    width:288px;
+    height:128px;
+    background-color: rgb(255, 255, 255);
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    box-shadow: 0 0 15px rgba(111, 111, 111, 0.339);
+}
+
+.item__first {
+    display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+}
+.item__company {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.item__salary {
+    font-size: 16px;
+}
+.item__position {
+    margin-top: 8px;
+    font-size: 16px;
+}
+.item__third {
+    display: flex;
+    margin-top: 16px;
+    justify-content: space-between;
+}
+
+.item__select {
+    background-color: #F5F5F5;
+    height:24px;
+    width: 92px;
+    border-style: none;
+}
+.item__buttons {
+    display: flex;
+}
+.item__button {
+    height: 24px;
+    width: 24px;
+    border-style: none;
+    margin-left: 16px;
+}
+
+.item__delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3px;
+    color: rgb(236, 57, 57);
 }

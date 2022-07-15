@@ -1,41 +1,51 @@
 import React, { useState } from 'react'
 import Edit from '../Edit/Edit'
+import { FaTrash } from 'react-icons/fa'
 import '../Item/Item.css'
-function Item({ deleteHandler, company, keyid, data, setData, status }) {
+function Item({ deleteHandler, data, setData, keyid }) {
 
-    const result = data.find(item => item.id === keyid)
+    const result = data?.find(item => item.id === keyid)
+
     const changeStatusHandler = (e) => {
-        const remainingItem = data.filter(entry => entry.id !== keyid)
-        const removedItem = data.filter(entry => entry.id === keyid)
+        const remainingItem = data.filter(entry => entry.id !== result.id)
+        const removedItem = data.filter(entry => entry.id === result.id)
         removedItem[0].status = e.target.value
         const combinedData = removedItem.concat(remainingItem)
         setData(combinedData)
     }
 
     return (
-        <div key={keyid} className="item__card">
+        <div key={result.keyid} className="item__card">
             {data &&
-                <>
-                    <div>{company}</div>
-                    <div>{result.position}</div>
-                    <div>${result.salary}</div>
-                    {
-                        result.interview ? <div>{result.interview}</div> : <div></div>
-                    }
-                    <div>
-                        <button onClick={() => deleteHandler(keyid)}>Delete Entry</button>
+                <div className='item__container'>
+                    <div className='item__first'>
+                        <div className='item__company'>{result.company}</div>
+                        <div className='item__salary'>${result.salary}</div>
                     </div>
-                    <div>
-                        <select defaultValue={status} onChange={(e) => changeStatusHandler(e)}>
+
+                    <div className='item__position'>{result.position}</div>
+
+                    {/* {
+                        result.interview ? <div>{result.interview}</div> : <div></div>
+                    } */}
+                    <div className='item__third'>
+                        <select className='item__select' defaultValue={result.status} onChange={(e) => changeStatusHandler(e)}>
                             <option value="Applied" >Applied</option>
                             <option value="Interview">Interview</option>
                             <option value="Decision" >Decision</option>
                         </select>
-                    </div>
+                        <div className='item__buttons'>
+                            <Edit props={result} setData={setData} data={data} keyid={result.id} />
+                            <div className='item__delete'>
+                                <FaTrash size={16} onClick={() => deleteHandler(result.id)} />
+                            </div>
 
-                </>
+                            {/* <button className='item__button' onClick={() => deleteHandler(result.id)}>D</button> */}
+                        </div>
+                    </div>
+                </div>
             }
-            <Edit props={result} setData={setData} data={data} keyid={keyid} />
+
         </div>
     )
 }

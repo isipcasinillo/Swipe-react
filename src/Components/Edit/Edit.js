@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ReactModal from 'react-modal'
 import '../Edit/Edit.css'
+import { FaEdit } from 'react-icons/fa'
 function Edit({ props, data, setData, keyid }) {
     const [modalState, setModalState] = useState(false)
     const { position, salary, company, interview } = props || {}
@@ -40,8 +41,12 @@ function Edit({ props, data, setData, keyid }) {
         setModalState(false)
     }
     return (
-        <>
-            <button onClick={() => setModalState(true)}>Edit</button>
+        <div className='Edit__button'>
+            <div>
+                <FaEdit size={20} onClick={() => setModalState(true)} />
+            </div>
+
+            {/* <button className='Edit__button' >E</button> */}
             <ReactModal
                 isOpen={modalState}
                 contentLabel="Modal"
@@ -58,7 +63,7 @@ function Edit({ props, data, setData, keyid }) {
                 </form>
                 <button onClick={() => setModalState(false)}>Close Modal</button>
             </ReactModal>
-        </>
+        </div>
 
     )
 }
