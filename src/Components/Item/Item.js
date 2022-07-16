@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Edit from '../Edit/Edit'
 import { FaTrash } from 'react-icons/fa'
 import '../Item/Item.css'
